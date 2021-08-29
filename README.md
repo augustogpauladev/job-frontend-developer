@@ -1,4 +1,4 @@
-# Redeinova: Teste prático para Frontend Javascript Developer
+# Redeinova Tecnologia: Teste prático para Frontend Javascript Developer
 
 Este é o teste usado por nós aqui da [Redeinova](https://www.redeinova.com.br/) para avaliar tecnicamente os candidatos a nossas vagas de Frontend. Se você estiver participando de um processo seletivo para nossa equipe, certamente em algum momento receberá este link. 
 
@@ -29,3 +29,20 @@ Além da listagem de vídeos, também gostaríamos de mostrar algumas informaç�
 * Organização, semântica, estrutura, legibilidade, manutenibilidade do seu código
 * Alcance dos objetivos propostos
 * Adaptação de layout (layout responsivo)
+
+## Dicas
+
+* Capriche, demonstre suas habilidades CSS, brinque com os efeitos, utilize em todas as seções e seja detalhista. Queremos saber seu repertório;
+
+* Tente dar sua cara pro projeto, imagine uma marca fictícia ou não, dê uma identidade visual pra ela;
+
+* Plugins JS são bem vindos contanto que sejam utilizados de forma inteligente;
+
+* Ainda não tem dominada algumas das skills? Foque primeiro no que você sabe. Vá o mais longe possível e utilize o tempo restante pra aprender o que não sabe, afinal essas habilidades serão utilizadas na sua rotina de trabalho;
+
+* Passe seu café e acredite no seu potencial!
+
+## Submissão
+Para iniciar o teste, faça um fork deste repositório, crie uma branch com o seu nome completo e depois envie-nos o pull request. Se você apenas clonar o repositório não vai conseguir fazer push e depois vai ser mais complicado fazer o pull request.
+
+Boa sorte! =D
