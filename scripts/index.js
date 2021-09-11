@@ -17,8 +17,10 @@ if (!input) return null
     .then(data =>{
          result = data.items
          
+         
            
            let video =  result.map((item)=>`
+           
                 <div>
                 <iframe width="420" height="315"
                  src="https://www.youtube.com/embed/${item.id.videoId}" 
@@ -28,12 +30,14 @@ if (!input) return null
                   gyroscope; picture-in-picture" 
                   allowfullscreen>
                   </iframe>
-                    <p><span style="font-weigth:bold">Titulo: </span>${item.snippet.title}</p>
-                    <p><span style="font-weigth:bold">Descrição: </span>${item.snippet.description===""?'Sem Descrição':item.snippet.description}</p>
-                    <p><span style="font-weigth:bold">Thumbnail: <img width="100px" src="${item.snippet.thumbnails.medium.url}"/></p>
+                    <p><span style="font-weight:bold">Titulo: </span>${item.snippet.title}</p>
+                    <p><span style="font-weight: bold">Publicado em: </span>${(item.snippet.publishedAt).slice(0,10)}</p>
+                    <p><span style="font-weight: bold">Publicado por: </span>${item.snippet.channelTitle}</p>
+                    <p><span style="font-weight:bold">Descrição: </span>${item.snippet.description===""?'Sem Descrição':item.snippet.description}</p>
+                    <p><span style="font-weight:bold">Thumbnail: <img width="100px" src="${item.snippet.thumbnails.medium.url}"/></p>
            
                  </div>`)
-                 
+                        
         results.innerHTML = video;
         
            
@@ -230,4 +234,4 @@ const dados = {
       }
     ]
   }
-  console.log(dados.items.map((item)=>`<p>${item.snippet.thumbnails.medium.url}</p>`) )
+  console.log(dados.items.map((item)=>`<p>${(item.snippet.channelTitle)}</p>`) )
