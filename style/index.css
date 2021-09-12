@@ -10,5 +10,43 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    ;
+    background-color: #1f1f1f1f;
+}
+.search{
+    height: 2.5rem;
+    width: 14rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: #f1f1f1;
+    padding: 1rem;
+    outline: none;
+    text-align: right;
+}
+.btn{
+    width: 2.5rem;
+    height:2.5rem;
+    border-radius: 50%;
+    border: none;
+    background-color: #f1f1f1;
+}
+.informations{
+    background-color: #1f1f1f1f;
+}
+.results{
+    background-color: #1f1f1f1f;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100vw;
+}
+.videoContainer{
+    width: 20rem;
+}
+.article{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.video{
+    width: 100%;
 }

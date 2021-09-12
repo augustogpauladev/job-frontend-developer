@@ -6,7 +6,8 @@ const info = document.querySelector('.informations');
   event.preventDefault()
     const apiKey = 'AIzaSyCDx-33kv3QDIPCC--8ZnHzJgGGcYFK4oI';
     const input = document.querySelector('.search').value;
-     
+     info.innerHTML = '';
+     results.innerHTML = '';
     let result= [];
     
     
@@ -19,14 +20,16 @@ if (!input) return null
          informations(input)          
            let video =  result.map((item)=>`
            
-                <div>
+                <div class='videoContainer'>
                     <iframe width="420" height="315"
+                      class='video'
                       src="https://www.youtube.com/embed/${item.id.videoId}" 
                       frameborder="0";
                       autoplay; 
                       clipboard-write;
                       gyroscope; picture-in-picture" 
                       allowfullscreen>
+                     
                     </iframe>
 
                     <p><span style="font-weight:bold">Titulo: </span>${item.snippet.title}</p>
@@ -36,7 +39,8 @@ if (!input) return null
                     <p><span style="font-weight:bold">Thumbnail: <img width="100px" src="${item.snippet.thumbnails.medium.url}"/></p>
            
                </div>`)
-                const videos = document.createElement('article') ;
+                const videos = document.createElement('article');
+                videos.setAttribute('class', 'article')
                 videos.innerHTML = video  
         results.appendChild(videos)
         ;
@@ -58,38 +62,41 @@ function informations(band){
     .then((data) => {
      
       information = data._embedded.attractions[0]
-      console.log('DEU CERTO');
-      
+      console.log(information.externalLinks)
+
       article.innerHTML = `
                           <div class=imageInformation>
                               <img src='${information.images[6].url}' alt='${information.id}'/>
                           </div>
 
                           <div>
-                               <span style='font-weight:bold'>Nome: </span>${information.name}
                                 <p>
-                                 </p>
-                                 <p>
+                                  <span style='font-weight:bold'>Nome: </span>${information.name}
+                                
+                                </p>
+                                <p>
                                    <span style='font-weight:bold'>Gênero: </span>${information.classifications[0].genre.name}
-                                  </p>
-                                  <p>
+                                </p>
+                                 <p>
                                     <span style='font-weight:bold'>Segmento: </span>${information.classifications[0].segment.name}
                                  </p>
+
                                   <div class='social'>
                                       <p style='font-weight:bold'>Redes sociais e contato:</p>
                                       <ul>
-                                        <li>Facebook: <a href='${information.externalLinks.facebook[0].url}' target='blanc'>${information.externalLinks.facebook[0].url}</a></li>
-                                        <li>Instagram: <a href='${information.externalLinks.instagram[0].url}' target='blanc'>${information.externalLinks.instagram[0].url}</a></li>
-                                       <li>Twitter: <a href='${information.externalLinks.twitter[0].url}' target='blanc'>${information.externalLinks.twitter[0].url}</a></li>
-                                        <li>Youtube: <a href='${information.externalLinks.youtube[0].url}' target='blanc'>${information.externalLinks.youtube[0].url}</a></li>
-                                       <li>Wiki: <a href='${information.externalLinks.wiki[0].url}' target='blanc'>${information.externalLinks.wiki[0].url}</a></li>
-                                      </ul>
+                                          <li><span style='font-weight=bold'>Facebook: </span><a href='https://www.facebook.com/${(information.name).replace(" ","")}' target='blank'>https://www.facebook.com/${information.name}</a></li>
+                                          <li><span style='font-weight=bold'>Twitter: </span><a href='https://twitter.com/${(information.name).replace(" ","")}' target='blank'>https://twitter.com/${information.name}</a></li>
+                                          <li><span style='font-weight=bold'>Instagram: </span><a href='https://www.instagram.com/${(information.name).replace(" ","")}' target='blank'>https://twitter.com/${information.name}</a></li>
+                                          <li><span style='font-weight=bold'>YouTube: </span><a href='https://www.youtube.com/user/${(information.name).replace(" ","")}' target='blank'>https://www.youtube.com/user/${information.name}</a></li>
+                                       
+                                       </ul>
                                  </div>
 
                             </div>
                               
                               
                           `;
+             
       info.appendChild(article);
       
     })
@@ -98,3 +105,4 @@ function informations(band){
 }
 
 btn.addEventListener('click', search);
+//informations('iron maiden')
