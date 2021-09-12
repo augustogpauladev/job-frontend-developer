@@ -1,6 +1,7 @@
 const btn = document.querySelector('.btn');
 const results = document.querySelector('.results');
 const info = document.querySelector('.informations');
+
  function search(event){
 
   event.preventDefault()
@@ -9,17 +10,14 @@ const info = document.querySelector('.informations');
      info.innerHTML = '';
      results.innerHTML = '';
     let result= [];
-    
-    
-    
-if (!input) return null
+   
      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&videoEmbeddable=true&videoSyndicated=true&videoLicense=creativeCommon&key=${apiKey}&type=video&q=${input}`)
     .then((response) => response.json())
     .then(data =>{
          result = data.items; 
          informations(input)          
            let video =  result.map((item)=>`
-           
+                
                 <div class='videoContainer'>
                     <iframe width="420" height="315"
                       class='video'
@@ -29,8 +27,7 @@ if (!input) return null
                       onYouTubeIframeAPIReady;
                       clipboard-write;
                       gyroscope; picture-in-picture" 
-                      allowfullscreen>
-                     
+                      allowfullscreen>                     
                     </iframe>
                     <p><span style="font-weight:bold">Thumbnail: <img width="100px" src="${item.snippet.thumbnails.medium.url}"/></p>
                     <p><span style="font-weight:bold">Titulo: </span>${item.snippet.title}</p>
@@ -38,32 +35,26 @@ if (!input) return null
                     <p><span style="font-weight: bold">Publicado por: </span>${item.snippet.channelTitle}</p>
                     <p><span style="font-weight:bold">Descrição: </span>${item.snippet.description===""?'Sem Descrição':item.snippet.description}</p>
                     
-           
                </div>`)
                 const videos = document.createElement('article');
                 videos.setAttribute('class', 'article')
-                videos.innerHTML = video  
-        results.appendChild(videos)
-        ;
-           
+                videos.innerHTML = video 
+                results.innerHTML='<h3>Videos referentes a sua busca</h3>'
+                results.appendChild(videos);          
         })  
 };
-
-
 
 function informations(band){
  
   const article = document.createElement('article');
   article.setAttribute('class', 'information');
   let information = '';
- 
+  info.innerHTML= '<div class=loading ></div>'
 
   fetch(`https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=${band}&apikey=uwk3vzZlQOho8rBXJHJdT9AE8Amf767z`)
   .then(response => response.json())
-    .then((data) => {
-     
+    .then((data) => {     
       information = data._embedded.attractions[0]
-
       article.innerHTML = `
                           <div class=imageInformation>
                               <img src='${information.images[6].url}' alt='${information.id}'/>
@@ -90,13 +81,8 @@ function informations(band){
                                           <li><span style='font-weight=bold'>YouTube: </span><br><a href='https://www.youtube.com/user/${(information.name).replace(" ","")}' target='blank'>https://www.youtube.com/user/${information.name}</a></li>
                                        
                                        </ul>
-                                 </div>
-
-                            </div>
-                              
-                              
-                          `;
-             
+                                 </div>`;
+          info.innerHTML=''   
       info.appendChild(article);
       
     })
@@ -105,4 +91,3 @@ function informations(band){
 }
 
 btn.addEventListener('click', search);
-//informations('iron maiden')
