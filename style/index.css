@@ -4,6 +4,10 @@
     box-sizing: border-box;
     font-family: 'poppins', Arial, Helvetica, sans-serif;
 }
+body{
+    width: 100vw;
+    overflow-x: hidden;
+}
 .container{
     display: flex;
     width: 100vw;
@@ -35,7 +39,13 @@
         transform: scale(1.3);
     }
 }
-
+#form{
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+main .title{
+    margin-top: 1rem;
+}
 .search{
     height: 2.5rem;
     width: 14rem;
@@ -46,6 +56,11 @@
     outline: none;
     text-align: right;
 }
+.search:focus{
+    background-color: #fff;
+    border: 2px solid #FA5F14;
+    color: #FA5F14;
+}
 .btn{
     width: 2.5rem;
     height:2.5rem;
@@ -53,24 +68,98 @@
     border: none;
     background-color: #f1f1f1;
 }
+.btn:hover{
+    background-color: #fff;
+    border: 2px solid #FA5F14;
+    cursor: pointer;
+    color: #FA5F14;
+}
 .informations{
     background-color: #1f1f1f1f;
 }
+.information{
+    display: flex;
+    align-items: center;
+    max-width: 80vw;
+    min-width: 320px;
+    background-color: #FA5F14;
+    max-height: 40rem;
+    border-radius: 5px;
+    color: #f1f1f1;
+}
+.information .imageInformation{
+    width: 50%;
+    min-width: 200px;
+    height: 100%;
+    padding: 2px;
+}
+.information .imageInformation img{
+    width: 100%;
+    height: 100%;
+}
+.textInformation{
+    width: 50%;
+    font-size: 1rem;
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.textInformation p span{
+    text-shadow: 1px 4px 4px #181818;
+}
+.social{
+    margin-top: .5rem;
+    font-size: .5rem;
+    text-align:left;
+}.social p{
+    font-size: .5rem;
+    text-align: center;
+    text-shadow: 1px 4px 4px #181818;
+}
+.social ul li{
+    list-style: none;
+}
+.social ul li span{
+    text-shadow: 1px 4px 4px #181818;
+} 
 .results{
     background-color: #1f1f1f1f;
     display: flex;
     flex-wrap: wrap;
     max-width: 100vw;
+    margin-top: 2rem;
 }
 .videoContainer{
-    width: 20rem;
+    width: 15rem;
+    height: 20rem;
+    margin-bottom: 1rem;
+    margin-left: .5rem;
+    max-height: 40rem;
+    padding: 5px;
+    background-color: #FA5F14;
+    border-radius: 5px;
+}
+.videoContainer p{
+    font-size: .5rem;
+    color: #f1f1f1;
+    font-weight: 700;
+}
+.videoContainer p span{
+    font-size: .5rem;
+    color: #f1f1f1;
+    font-weight: 700;
+    text-shadow: 1px 2px 1px #181818 ;
 }
 .article{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 10px;
 }
 .video{
     width: 100%;
+    height: 8rem;
 }

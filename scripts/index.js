@@ -13,7 +13,7 @@ const info = document.querySelector('.informations');
     
     
 if (!input) return null
-     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&key=${apiKey}&type=video&q=${input}`)
+     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&videoEmbeddable=true&videoSyndicated=true&videoLicense=creativeCommon&key=${apiKey}&type=video&q=${input}`)
     .then((response) => response.json())
     .then(data =>{
          result = data.items; 
@@ -23,20 +23,21 @@ if (!input) return null
                 <div class='videoContainer'>
                     <iframe width="420" height="315"
                       class='video'
-                      src="https://www.youtube.com/embed/${item.id.videoId}" 
+                      src="https://www.youtube.com/embed/${item.id.videoId}?enablejsapi=1" 
                       frameborder="0";
                       autoplay; 
+                      onYouTubeIframeAPIReady;
                       clipboard-write;
                       gyroscope; picture-in-picture" 
                       allowfullscreen>
                      
                     </iframe>
-
+                    <p><span style="font-weight:bold">Thumbnail: <img width="100px" src="${item.snippet.thumbnails.medium.url}"/></p>
                     <p><span style="font-weight:bold">Titulo: </span>${item.snippet.title}</p>
                     <p><span style="font-weight: bold">Publicado em: </span>${(item.snippet.publishedAt).slice(0,10)}</p>
                     <p><span style="font-weight: bold">Publicado por: </span>${item.snippet.channelTitle}</p>
                     <p><span style="font-weight:bold">Descrição: </span>${item.snippet.description===""?'Sem Descrição':item.snippet.description}</p>
-                    <p><span style="font-weight:bold">Thumbnail: <img width="100px" src="${item.snippet.thumbnails.medium.url}"/></p>
+                    
            
                </div>`)
                 const videos = document.createElement('article');
@@ -62,14 +63,13 @@ function informations(band){
     .then((data) => {
      
       information = data._embedded.attractions[0]
-      console.log(information.externalLinks)
 
       article.innerHTML = `
                           <div class=imageInformation>
                               <img src='${information.images[6].url}' alt='${information.id}'/>
                           </div>
 
-                          <div>
+                          <div class='textInformation'>
                                 <p>
                                   <span style='font-weight:bold'>Nome: </span>${information.name}
                                 
@@ -84,10 +84,10 @@ function informations(band){
                                   <div class='social'>
                                       <p style='font-weight:bold'>Redes sociais e contato:</p>
                                       <ul>
-                                          <li><span style='font-weight=bold'>Facebook: </span><a href='https://www.facebook.com/${(information.name).replace(" ","")}' target='blank'>https://www.facebook.com/${information.name}</a></li>
-                                          <li><span style='font-weight=bold'>Twitter: </span><a href='https://twitter.com/${(information.name).replace(" ","")}' target='blank'>https://twitter.com/${information.name}</a></li>
-                                          <li><span style='font-weight=bold'>Instagram: </span><a href='https://www.instagram.com/${(information.name).replace(" ","")}' target='blank'>https://twitter.com/${information.name}</a></li>
-                                          <li><span style='font-weight=bold'>YouTube: </span><a href='https://www.youtube.com/user/${(information.name).replace(" ","")}' target='blank'>https://www.youtube.com/user/${information.name}</a></li>
+                                          <li><span style='font-weight=bold'>Facebook: </span><br><a href='https://www.facebook.com/${(information.name).replace(" ","")}' target='blank'>https://www.facebook.com/${information.name}</a></li>
+                                          <li><span style='font-weight=bold'>Twitter: </span><br><a href='https://twitter.com/${(information.name).replace(" ","")}' target='blank'>https://twitter.com/${information.name}</a></li>
+                                          <li><span style='font-weight=bold'>Instagram: </span><br><a href='https://www.instagram.com/${(information.name).replace(" ","")}' target='blank'>https://twitter.com/${information.name}</a></li>
+                                          <li><span style='font-weight=bold'>YouTube: </span><br><a href='https://www.youtube.com/user/${(information.name).replace(" ","")}' target='blank'>https://www.youtube.com/user/${information.name}</a></li>
                                        
                                        </ul>
                                  </div>
