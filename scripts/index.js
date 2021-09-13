@@ -63,7 +63,6 @@ function informations(band){
                           <div class='textInformation'>
                                 <p>
                                   <span style='font-weight:bold'>Nome: </span>${information.name}
-                                
                                 </p>
                                 <p>
                                    <span style='font-weight:bold'>Gênero: </span>${information.classifications[0].genre.name}
