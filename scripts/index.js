@@ -11,14 +11,14 @@ const info = document.querySelector('.informations');
      results.innerHTML = '';
     let result= [];
    
-     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&videoEmbeddable=true&videoSyndicated=true&videoLicense=creativeCommon&key=${apiKey}&type=video&q=${input}`)
+     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&videoEmbeddable=true&videoSyndicated=true&videoLicense=creativeCommon&key=${apiKey}&type=video&q=${input}`)
     .then((response) => response.json())
     .then(data =>{
          result = data.items; 
          informations(input)          
-           let video =  result.map((item)=>`
+           let video =  result.map((item,index)=>`
                 
-                <div class='videoContainer'>
+                <div class='videoContainer' style='--delay:${index+1}00ms'>
                     <iframe width="420" height="315"
                       class='video'
                       src="https://www.youtube.com/embed/${item.id.videoId}?enablejsapi=1" 
@@ -39,7 +39,7 @@ const info = document.querySelector('.informations');
                 const videos = document.createElement('article');
                 videos.setAttribute('class', 'article')
                 videos.innerHTML = video 
-                results.innerHTML='<h3>Videos referentes a sua busca</h3>'
+                results.innerHTML='<h3>Videos referentes a sua busca:</h3>'
                 results.appendChild(videos);          
         })  
 };

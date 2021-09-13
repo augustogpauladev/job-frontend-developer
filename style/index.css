@@ -24,7 +24,10 @@ body{
     text-transform:capitalize;
     font-family: 'Glory', sans-serif;
 }
-.container .title i{
+.container .fa-microphone,.fa-music{
+    font-size: 2rem;
+}
+.container .fa-youtube{
     color: #FA5F14;
     font-size: 3rem;
     animation: anime;
@@ -76,6 +79,7 @@ main .title{
 }
 .informations{
     background-color: #1f1f1f1f;
+    overflow: hidden;
 }
 .information{
     display: flex;
@@ -86,6 +90,32 @@ main .title{
     max-height: 40rem;
     border-radius: 5px;
     color: #f1f1f1;
+    animation: toright .5s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+
+}
+@keyframes toright{
+    0%{
+        transform: translateX(-50rem);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(initial);
+        opacity: 1;
+    }
+
+}
+@keyframes toleft{
+    0%{
+        margin-left: 100%;
+        opacity: 0;
+    }
+    100%{
+        margin-left: initial;
+        opacity: 1;
+    }
+
 }
 .information .imageInformation{
     width: 50%;
@@ -140,6 +170,10 @@ main .title{
     padding: 5px;
     background-color: #FA5F14;
     border-radius: 5px;
+    animation: toleft .6s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    animation-delay: var(--delay);
 }
 .videoContainer p{
     font-size: .5rem;
@@ -163,7 +197,11 @@ h3{
     margin: 0 auto;
     text-align: center;
     color: #FA5F14;
-    font-size: 1.5rem;
+    font-weight: 700;
+    font-size: 2rem;
+    text-transform:capitalize;
+    font-family: 'Glory', sans-serif;
+    text-decoration:underline
 }
 .video{
     width: 100%;
