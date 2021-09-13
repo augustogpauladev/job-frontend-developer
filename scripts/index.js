@@ -36,11 +36,18 @@ const info = document.querySelector('.informations');
                     <p><span style="font-weight:bold">Descrição: </span>${item.snippet.description===""?'Sem Descrição':item.snippet.description}</p>
                     
                </div>`)
+                
                 const videos = document.createElement('article');
-                videos.setAttribute('class', 'article')
-                videos.innerHTML = video 
-                results.innerHTML='<h3>Videos referentes a sua busca:</h3>'
-                results.appendChild(videos);          
+                videos.setAttribute('class', 'article');
+                videos.innerHTML = video;
+                results.innerHTML='<h3>Videos referentes a sua busca:</h3>';
+                results.appendChild(videos);  
+                const footer = document.createElement('footer');
+                footer.setAttribute('class','footer');
+                footer.innerHTML = '<p>&#169; - 2021';
+                results.appendChild(footer);
+                document.querySelector('.search').value = '';
+                     
         })  
 };
 
@@ -81,9 +88,13 @@ function informations(band){
                                        
                                        </ul>
                                  </div>`;
-          info.innerHTML=''   
+         
+          info.innerHTML='';   
       info.appendChild(article);
       
+    }).catch((error)=>{
+      info.innerHTML = '<h4 class = "error"><i class="fas fa-exclamation-circle"> </i>informações adicionais da sua busca não encontradas, tente outro termo de busca!</h4>'
+      setTimeout(()=>info.innerHTML = '<h3 style="color:red"><i class="fas fa-exclamation-circle"> </i></h3>',10000)
     })
     
 

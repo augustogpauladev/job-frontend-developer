@@ -217,6 +217,21 @@ h3{
     border-top-color: #FA5F14;
     animation: rotate 1s infinite;
 }
+.error{
+    font-size: .5rem;
+    color: red;
+    text-align: center;
+    width: 100vw;
+    animation: anime 1s ease-in-out alternate infinite;
+}
+.footer{
+    width: 100%;
+    text-align: center;
+    color: #f1f1f1;
+    font-size: .8rem;
+    border-top: 1px solid rgba(255, 255, 255, .2);
+}
+
 @keyframes rotate{
     to{
         transform: rotate(1turn);
