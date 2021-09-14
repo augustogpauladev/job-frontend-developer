@@ -1,44 +1,73 @@
 # Redeinova Tecnologia: Teste prático para Frontend Javascript Developer
 
-Este é o teste usado por nós aqui da [Redeinova](https://www.redeinova.com.br/) para avaliar tecnicamente os candidatos a nossas vagas de Frontend. Se você estiver participando de um processo seletivo para nossa equipe, certamente em algum momento receberá este link. 
+# Projeto Feito pelo candidato: 
 
-Aqui na Redeinova nós aplicamos este mesmo teste para as vagas em todos os níveis, ou seja, um candidato a uma vaga de frontend júnior fará o mesmo teste de um outro candidato a uma vaga de frontend sênior, mudando obviamente o nosso critério de avaliação do resultado do teste. 
+* ## Brandon Alves Nunes Freitas
 
-Nós fazemos isso esperando que as pessoas mais iniciantes entendam qual o modelo de profissional que temos por aqui e que buscamos para o nosso time. Portanto, se você estiver se candidatando a uma vaga mais iniciante, não se assuste, e faça o melhor que você puder!
 
-## Instruções
+# Como rodar o projeto;
 
-Você deverá criar um `fork` deste projeto, e desenvolver em cima do seu fork. Use o *README* principal do seu repositório para nos contar como foi resolver seu teste, as decisões tomadas, como você organizou e separou seu código, e principalmente as instruções de como rodar seu projeto!
+# Forma 1:
 
-O tempo limite para resolução deste teste é de 7 dias após o recebimento do link de acesso ao repositório.
+### Passo1: 
+* Na página do github selecione a branch com meu nome(brandon-alves-nunes-freitas);
+### Passo 2:
+* Clique no botão "code" ou "código" se estiver em portugues, em seguida clique em "Download Zip";
+### Passo 3:
+* Vá ao arquivo baixado e extraia, entre na pasta extraida até achar o arquivo "index.html";
+### Passo 4:
+* Clique nele com o botão direito do mouse e escolha abrir com um navegador de sua preferência ou arraste o arquivo para uma janela do seu navegador.
 
-## O desafio
+# Forma 2:
 
-Você irá construir a nossa próxima aplicação de busca de bandas e artistas usando as [APIs do Youtube](https://developers.google.com/youtube/v3/getting-started) e [TicketMaster](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/). É uma aplicação simples, onde iremos buscar por um determinado artista ou banda para termos acesso aos vídeos do Youtube retornados pela busca e também os dados desta banda requisitados através da API do Ticketmaster.
+### Passo 1:
+* Na página do github selecione a branch com meu nome(brandon-alves-nunes-freitas);
+### Passo 2:
+* Clone o repositorio em sua maquina local, usando SSH ou HTTPS;
+### Passo 3:
+* Dentro do repositorio local busque o arquivo index.html e repita o Passo 4 da Forma 1, para ver o codigo fonte do projeto abra a pasta do repositorio 
+com um IDE de sua preferência ou um editor de texto.
 
-Nossa ideia de interface, é uma tela com apenas um campo de busca no centro da tela, que ao ser acionado com o nome da banda, irá submeter esta pesquisa para a API do Youtube, retornando uma listagem com alguns vídeos desta banda. Com o submit do formulário, o campo deve se posicionar no topo da tela, para que o espaço todo do miolo da página seja melhor aproveitado.
 
-Para cada um dos vídeos, gostaríamos de ver pelo menos os dados básicos, como titulo, descrição e thumbnail (obviamentem quanto mais informações você mostrar melhor, como rating, usuário que enviou, etc). Quando clicarmos no vídeo, queremos reproduzir o vídeo (embedado ali, em um modal, ou até em um simples link, faça como quiser).
 
-Além da listagem de vídeos, também gostaríamos de mostrar algumas informações sobre a banda, como os dados de contato em redes sociais, imagens, e o que mais você conseguir extrair da API do TicketMaster. Uma dica é utilizar o recurso de `Attraction Search` da `Discovery API` do TicketMaster para retornar estas informações. Você pode gerar suas próprias API Keys para consumir as APIs.
+# Estrutura e divisão do projeto:
+    
+## A divisão dos arquivos e pastas estão da seguinte forma:
+   
+* Na pasta Raiz esta o arquivo HTML principal nomeado como <em>index.html</em>, há uma pasta <em>style</em> onde dentro se encontram os arquivos <em>index.css</em>
+com este nome se referindo ao arquivo principal <em>index.html</em> que esta o chamando/requisitando no seu corpo, e o arquivo <em>mobile.css</em> onde esta o css responsivo da página, tambem há a pasta <em>scripts</em>, dentro da mesma se encontra o arquivo JavaScript nomeado como, <em>index.js</em> onde esta tambem sendo chamado pelo arquivo <em>index.html</em>, há tambem a pasta <em>favicons</em> onde se encontra o arquivo favicon da pagina, arquivo criado e baixado do site <a href='https://favicon.io/'>favicon.io</a>.
+  
+   
+ * Projeto feito sem nenhum framework, utilzando as tecnologias de HTML5, CSS3 e JavaScript puro sem ajuda de plugins de terceiros.
+o corpo do HTML foi feito utilzando de TAGS semânticas evitando o uso de TAGS como DIV, boa parte do corpo do HTML tambem esta sendo renderizado de forma dinâmica com o JavaScript.
+ 
+  
+ * Estilo composto por 2 cores predominantes, uma cor de fonte neutra(branco), e uma cor diferenciada(vermelho) se houver erro na requisição da api, 
+ os icones que aparecem na pagina são do site <a href='https://fontawesome.com'>fontawesome</a>.
+  Há animações em icones, e nos elementos que entram na tela dinâmicamente, animações feitas apenas de CSS puro sem bibliotecas externas, usando apenas do 
+ recurso <em>keyframes</em> nativo do CSS.
+  
+  
+ *  A parte dinamica do JavaScript se baseia em coletar o valor que esta sendo digitado no input principal da pagina, logo em seguida quando o botão 
+ de busca for acionado chama a primeira função que faz a requisição da api <a href='https://developers.google.com/youtube/v3/getting-started' >APIs do Youtube</a>, que chama a api e rederiza os videos na tela, antes do processo estar completo chama a segunda função que irá requisitar os dados sobre o valor 
+ do input a api do <a href='https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/'>TicketMaster</a>, usando o recurso <em>Attraction Search</em> da <em>Discovery API</em> do TicketMaster, onde sera redenrizado na tela uma imagem e informações referentes a busca do usuário, se houver erro na busca por não haver essa informação na api do TicketMaster, uma mensagem de erro será mostrada na tela, se não for feito mais nenhuma requisição dentro 
+ de um determinado tempo, um sinal de exclamação(!) ficara acima dos videos carregados e abaixo do input de busca.
+  
 
-## O que avaliaremos no seu teste
+## Desafios:
+   
+* Pessoalmente ainda não havia trabalhado com mais de uma api ao mesmo tempo, isso abriu minha mante para novas possibilidades de projetos pessoais ou em desenvolvimento de ideias no trablho.
+    
+   
+* O youtube há algum tempo criou uma politica que não deixa a maioria dos seus videos serem reproduzidos fora do dominio youtube.com, tive que contornar isso estudando e buscando na api algum parametro que pudesse contornar isso, e consegui!, porem muitos videos deixaram de aparecer na busca então para compensar isso aumentei o numero de resultados mostrados na tela da aplicação.
+    
+   
+* A api do TicketMaster é bem abrangente porem, se for buscar por uma atração brasileira mais especifica ele não trará resultados, ou buscara um resultado que talvez não seja o desejado, a dica é buscar por celebridades internacionais conhecidas no mundo todo.
+   
 
-* Histórico de commits do git
-* As instruções de como rodar o projeto
-* Organização, semântica, estrutura, legibilidade, manutenibilidade do seu código
-* Alcance dos objetivos propostos
-* Adaptação de layout (layout responsivo)
 
-## Dicas
 
-* Capriche, demonstre suas habilidades CSS, brinque com os efeitos, utilize em todas as seções e seja detalhista. Queremos saber seu repertório;
-* Tente dar sua cara pro projeto, imagine uma marca fictícia ou não, dê uma identidade visual pra ela;
-* Plugins JS são bem vindos contanto que sejam utilizados de forma inteligente;
-* Ainda não tem dominada algumas das skills? Foque primeiro no que você sabe. Vá o mais longe possível e utilize o tempo restante pra aprender o que não sabe, afinal essas habilidades serão utilizadas na sua rotina de trabalho;
-* Passe seu café e acredite no seu potencial!
 
-## Submissão
-Para iniciar o teste, faça um fork deste repositório, crie uma branch com o seu nome completo e depois envie-nos o pull request. Se você apenas clonar o repositório não vai conseguir fazer push e depois vai ser mais complicado fazer o pull request.
 
-Boa sorte! =D
+
+
